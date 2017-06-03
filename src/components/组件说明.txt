@@ -1,0 +1,113 @@
+BodyDetail 影人信息
+BuyTicketPage  购票页面
+CinemaList 电影院列表
+CinemaPage 影院页面
+FilmDetail 电影信息
+FilmList   搜索电影结果列表
+FilmPage   电影页面
+FooterBanner 底部栏
+HeaderBanner 头部栏
+HitFilm    电影页面热映电影列表
+IconList   用户页面图标列表
+LoadingPop 加载动画弹窗
+MessList   用户页面信息列表
+RankBanner 搜索范围选择下拉框
+SearchPage 搜索页面
+SelectCity 城市选择下拉弹窗
+Top250   豆瓣top250电影 
+UserPage 用户页面
+// const store=new Vuex.Store({
+// 	state:{
+// 		bodyFlag:false,//影人蒙层显示开关
+// 		filmFlag:false,//电影蒙层显示开关
+// 		searchKey:"tag=搞怪",//搜索关键词q
+// 		selectVal:"",//下拉列表选项的值
+// 		searchUrl:"https://api.douban.com/v2/movie/search?",
+// 		// searchQ:"http://miaoeyes.duapp.com/searchQ.php?",
+// 		// searchTag:"http://miaoeyes.duapp.com/searchTag.php?",
+// 		filmUrl:"https://api.douban.com/v2/movie/subject/",//电影详情请求接口
+// 		bodyUrl:"https://api.douban.com/v2/movie/celebrity/",//影人详情请求接口
+// 		filmId:'',//电影详情id
+// 		bodyId:'',//影人id
+// 		filmList:{},//电影列表
+// 		filmDetail:{},//电影详情信息
+// 		bodyDetail:{},//影人信息
+// 	},
+// 	mutations:{
+// 		showFilm:function(state){
+// 			state.filmFlag=true
+// 		},
+// 		showBody:function(state){
+// 			state.bodyFlag=true;
+// 		},
+// 		hideFilm:function(state){
+// 			state.filmFlag=false
+// 		},
+// 		hideBody:function(state){
+// 			state.bodyFlag=false;
+// 		},
+// 		getSelectVal:function(state,val){//获取下拉列表选项的值
+// 			var f=state.filmList;
+// 			if(val=='评分最高'){
+// 				for(var i=0;i<f.length;i++){//冒泡排序，由高到低排序
+// 					for(var j=i;j<f.length;j++){
+// 						if(f[i].rating.average<f[j].rating.average){
+// 							var temp=f[i];
+// 							Vue.set(f, i, f[j]);
+// 							Vue.set(f, j, temp);
+// 						}
+// 					}
+// 				}
+// 			}else if(val=='评分最低'){
+// 				for(var i=0;i<f.length;i++){//冒泡排序，由低到高排序
+// 					for(var j=i;j<f.length;j++){
+// 						if(f[i].rating.average>f[j].rating.average){
+// 							var temp=f[i];
+// 							Vue.set(f, i, f[j]);
+// 							Vue.set(f, j, temp);
+// 						}
+// 					}
+// 				}
+// 			}else{
+// 				// 发起新的请求
+// 				state.searchKey="tag="+val;
+// 				store.dispatch("getFilmList")
+// 			}
+// 		}
+// 	},
+// 	actions:{
+// 		getFilm:function(store){//页面加载前初始化电影列表
+// 			var film=require("../assets/json/film.json")
+// 			store.state.filmList=film.subjects;
+// 		},
+// 		getFilmList:function(store){//请求电影列表
+// 			store.state.filmList={}//请求前把原来的数据清空
+// 			// var x=store.state.searchKey.slice(0,1);//截取第一个字母，q则根据qurl搜索，t则根据tag搜索
+// 			// if(x==="q"){
+// 			// 	Vue.http.get(store.state.searchQ+store.state.searchKey).then((res)=>{
+// 			// 		console.log(res)
+// 			// 		store.state.filmList=res.body.subjects
+// 			// 	})
+// 			// }else if(x==="t"){
+// 			// 	Vue.http.get(store.state.searchTag+store.state.searchKey).then((res)=>{
+// 			// 		console.log(res)
+// 			// 		store.state.filmList=res.body.subjects
+// 			// 	})
+// 			// }
+// 			Vue.http.jsonp(store.state.searchUrl+store.state.searchKey).then((res)=>{
+// 					console.log(res)
+// 					store.state.filmList=res.body.subjects
+// 				})
+// 		},
+// 		getFilmDetail:function(store){//请求电影详情
+// 			Vue.http.jsonp(store.state.filmUrl+store.state.filmId).then((res)=>{
+// 				store.state.filmDetail=res.body
+// 			})
+// 		},
+// 		getBodyDetail:function(store){//请求影人详情
+// 			Vue.http.jsonp(store.state.bodyUrl+store.state.bodyId).then((res)=>{
+// 				store.state.bodyDetail=res.body
+// 			})
+// 		}
+// 	}
+// })
